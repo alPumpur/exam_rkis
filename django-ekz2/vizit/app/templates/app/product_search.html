@@ -1,0 +1,18 @@
+{% extends 'basic.html' %}
+
+{% block title %}<title>Результаты поиска</title>{% endblock %}
+
+{% block content %}
+  <h2>Результаты поиска</h2>
+  <p>По запросу "{{ query }}" найдены следующие товары:</p>
+
+  {% if products %}
+    <ul >
+      {% for product in products %}
+        <li>{{ product.name }} - {{ product.desc }} - <img src="{{ product.photo.url }}" width="200px" max-height="200px"  class="card-img-top" alt="{{ product.name }}"></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Ничего не найдено.</p>
+  {% endif %}
+{% endblock %}
